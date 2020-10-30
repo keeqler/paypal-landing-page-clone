@@ -1,31 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  .content {
-    width: 100%;
-    position: absolute;
-    transition: left 300ms;
-  }
+import { motion } from 'framer-motion';
 
-  .content-enter {
-    left: 0;
-  }
-
-  .content-enter-active {
-    left: 240px;
-  }
-
-  .content-enter-done {
-    left: 240px;
-  }
-
-  .content-exit {
-    left: 240px;
-  }
-
-  .content-exit-active {
-    left: 0;
-  }
+export const Container = styled(motion.div)`
+  width: 100%;
+  position: absolute;
 `;
 
 const Button = styled.button`

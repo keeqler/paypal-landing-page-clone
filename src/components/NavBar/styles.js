@@ -1,32 +1,13 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Container = styled.div`
-  position: absolute;
-
-  .navbar-wrapper-enter-active {
-    left: 0;
-  }
-
-  .navbar-wrapper-enter-done {
-    left: 0;
-  }
-
-  .navbar-wrapper-exit {
-    left: 0;
-  }
-
-  .navbar-wrapper-exit-active {
-    left: -240px;
-  }
-`;
-
-export const NavBar = styled.nav`
+export const Container = styled(motion.nav)`
   width: 240px;
   height: 100%;
   padding: 20px 16px;
   position: fixed;
   top: 0;
-  left: -240px;
+  left: 0;
   display: flex;
   flex-direction: column;
   background: radial-gradient(
@@ -35,5 +16,4 @@ export const NavBar = styled.nav`
     var(--blue-3) 125%
   );
   z-index: 2;
-  transition: left 300ms;
 `;
