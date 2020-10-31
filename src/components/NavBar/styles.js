@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { animated } from 'react-spring';
 
-export const Container = styled(motion.nav)`
+export const Container = styled(animated.nav)`
   width: 240px;
   height: 100%;
   padding: 20px 16px;
@@ -10,6 +10,7 @@ export const Container = styled(motion.nav)`
   left: 0;
   display: flex;
   flex-direction: column;
+  transform: translateX(-240px);
   background: radial-gradient(
     circle farthest-side at center bottom,
     var(--blue-4),

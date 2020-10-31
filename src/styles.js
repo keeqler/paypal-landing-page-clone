@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-import { motion } from 'framer-motion';
-
-export const Container = styled(motion.div)`
+export const Container = styled(animated.div)`
   width: 100%;
   position: absolute;
 `;

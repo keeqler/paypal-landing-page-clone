@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
-import { motion } from 'framer-motion';
+import { useSpring, useTransition } from 'react-spring';
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
@@ -30,6 +29,11 @@ const App = () => {
   const [navBarOpen, setNavBarOpen] = useState(false);
   const [personalNavBarOpen, setPersonalNavBarOpen] = useState(false);
   const [businessNavBarOpen, setBusinessNavBarOpen] = useState(false);
+
+  const transitionsOnNavbarOpen = useSpring({
+    config: { duration: 300 },
+    transform: navBarOpen ? 'translateX(240px)' : 'translateX(0px)'
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -109,11 +113,7 @@ const App = () => {
           <s.BusinessNavBarLink>Nonprofits</s.BusinessNavBarLink>
         </NavBar>
       </header>
-      <s.Container
-        initial={{ transform: 'translate(0px)' }}
-        animate={navBarOpen ? { transform: 'translate(240px)' } : { transform: 'translate(0px)' }}
-        transition={{ duration: 0.3 }}
-      >
+      <s.Container style={transitionsOnNavbarOpen}>
         <s.Header>
           <s.HeaderButton
             onClick={() => {
